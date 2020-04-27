@@ -1,0 +1,60 @@
+<template>
+  <div>
+    <navbar />
+    <b-container>
+      <b-row class="text-center">
+        <b-col>
+          <div>
+            <b-card class="text-left shadow-sm">
+              <template v-slot:header>Template selection</template>
+              <b-card-text>
+                <b-form-group label="Filters">
+                  <b-form-checkbox-group v-model="selected" :options="options" switches stacked></b-form-checkbox-group>
+                </b-form-group>
+              </b-card-text>
+            </b-card>
+          </div>
+        </b-col>
+        <b-col>
+          <b-card class="text-left shadow-sm">
+            <template v-slot:header>
+              <div class="d-flex align-items-center justify-content-between">
+                Contract preview
+                <b-button size="sm" class="shadow-sm" href="/new_case_file">Fill</b-button>
+              </div>
+            </template>
+            <b-card-text>
+              <img id="contract" src="~/assets/contract.png" alt="Contract" />
+            </b-card-text>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+</template>
+
+<script>
+import Navbar from "~/components/Navbar.vue";
+
+export default {
+  components: {
+    Navbar
+  },
+  data() {
+    return {
+      selected: ["nda"], // Must be an array reference!
+      options: [
+        { text: "NDA", value: "nda" },
+        { text: "Patent", value: "patent" },
+        { text: "Other type", value: "other" }
+      ]
+    };
+  }
+};
+</script>
+
+<style>
+#contract {
+  width: 100%;
+}
+</style>
