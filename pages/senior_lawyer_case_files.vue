@@ -4,7 +4,7 @@
     <b-container>
       <div class="d-flex align-items-center justify-content-between mb-2">
         <h2 class="mb-0">Case files</h2>
-        <b-button size="sm" class="shadow-sm" to="/new_case_file">
+        <b-button size="sm" class="shadow-sm" to="/new_case_file_senior">
           <b-icon-file-plus class="mr-2" />Create new case file
         </b-button>
       </div>
