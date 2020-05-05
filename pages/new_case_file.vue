@@ -20,7 +20,7 @@
             <template v-slot:header>
               <div class="d-flex align-items-center justify-content-between">
                 Contract preview
-                <b-button size="sm" class="shadow-sm" href="/new_case_file">Fill</b-button>
+                <b-button size="sm" class="shadow-sm" to="/fill_template">Fill contract</b-button>
               </div>
             </template>
             <b-card-text>

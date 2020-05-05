@@ -1,6 +1,7 @@
 <template>
   <b-navbar variant="light" type="light" class="bg rounded-bottom shadow-sm mb-4">
-    <b-navbar-brand href="/">
+    <b-container>
+    <b-navbar-brand to="/">
       <img
         id="logo"
         src="~/assets/smart_draft_logo_2.png"
@@ -8,6 +9,10 @@
         alt="Home"
       />
     </b-navbar-brand>
+    <b-button variant="outline-primary" to="/">
+      Logout
+    </b-button>
+    </b-container>
   </b-navbar>
 </template>
 
