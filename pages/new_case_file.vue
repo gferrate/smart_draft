@@ -11,6 +11,20 @@
                 <b-form-group label="Filters">
                   <b-form-checkbox-group v-model="selected" :options="options" switches stacked></b-form-checkbox-group>
                 </b-form-group>
+                <b-form-group id="input-group-1" label="Search by keywords:" label-for="input-1">
+                  <b-form-input id="input-1" type="text"></b-form-input>
+                </b-form-group>
+                Results:
+                <b-list-group>
+                    <b-list-group-item
+                      v-for="(case_name, index) in cases"
+                      :key="`case-${index}`"
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      {{case_name}}
+                      <b-button size="xs" pill variant="outline-secondary">Select</b-button>
+                    </b-list-group-item>
+                </b-list-group>
               </b-card-text>
             </b-card>
           </div>
@@ -42,6 +56,8 @@ export default {
   },
   data() {
     return {
+      selected_template: null,
+      cases: ["Work contract", "Contract of Service", "Supply"],
       selected: ["nda"], // Must be an array reference!
       options: [
         { text: "NDA", value: "nda" },
