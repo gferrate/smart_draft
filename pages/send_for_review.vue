@@ -3,10 +3,10 @@
     <navbar />
     <b-container class="pb-5">
       <b-card class="text-left shadow-sm">
-        <template v-slot:header>Fill the contract</template>
+        <template v-slot:header>Contract being reviewed by Sr Lawyer</template>
         <b-card-text>
           <b-row>
-            <b-col cols="8">
+            <b-col cols="7">
               <h4>Compensation</h4>
               <b-form-textarea
                 id="textarea-auto-height"
@@ -14,6 +14,7 @@
                 v-model="contract.compensation"
                 rows="5"
                 max-rows="25"
+                disabled
               ></b-form-textarea>
               <h4 class="mt-4">Event Logistics</h4>
               <b-form-textarea
@@ -22,6 +23,7 @@
                 v-model="contract.logistics"
                 rows="5"
                 max-rows="25"
+                disabled
               ></b-form-textarea>
               <h4 class="mt-4">Professional Appearance</h4>
               <b-form-textarea
@@ -30,24 +32,40 @@
                 v-model="contract.appearance"
                 rows="5"
                 max-rows="25"
+                disabled
               ></b-form-textarea>
               <h4 class="mt-4">Signatures</h4>
               <b-form-group id="input-group-1" label="Client:" label-for="input-1">
-                <b-form-input id="input-1" type="text" disabled></b-form-input>
+                <b-form-input id="input-1" type="text"></b-form-input>
               </b-form-group>
               <b-form-group id="input-group-1" label="Vendor:" label-for="input-1">
-                <b-form-input id="input-1" type="text" disabled></b-form-input>
+                <b-form-input id="input-1" type="text"></b-form-input>
               </b-form-group>
             </b-col>
             <b-col class="border-left">
-              <h4>Add comments for Sr Lawyer</h4>
+              <h4>Real time Sr Lawyer comments</h4>
+              <h5>Your comment</h5>
               <b-form-textarea
                 id="textarea-auto-height"
                 placeholder="Fill"
                 v-model="contract.comments"
-                rows="5"
+                max-rows="25"
+                disabled
+              ></b-form-textarea>
+              <h5 class="mt-3">Response</h5>
+              <b-form-textarea
+                id="textarea-auto-height"
+                v-model="contract.comment_response"
+                max-rows="25"
+                disabled
+              ></b-form-textarea>
+              <h5 class="mt-3">Add new comment</h5>
+              <b-form-textarea
+                id="textarea-auto-height"
+                v-model="contract.new_comment"
                 max-rows="25"
               ></b-form-textarea>
+              <b-button class="shadow-sm mt-2" size="sm" variant="outline-primary" >Publish</b-button>
             </b-col>
           </b-row>
           <b-row class="text-center border-top pt-3">
@@ -56,12 +74,7 @@
                 variant="outline-primary"
                 class="shadow-sm"
                 to="/junior_open_case_files"
-              >Save and go to Case Files</b-button>
-              <b-button
-                variant="outline-danger"
-                class="shadow-sm ml-2"
-                to="/junior_open_case_files"
-              >Discard changes</b-button>
+              >Back to Case Files</b-button>
               <b-button
                 v-b-modal.modal-1
                 variant="outline-primary"
@@ -70,10 +83,6 @@
               <b-modal id="modal-1" hide-footer>
                 <p>Simulation of Word document downloading</p>
               </b-modal>
-              <b-button
-                class="shadow-sm ml-2"
-                to="/send_for_review"
-              >Send for review</b-button>
             </b-col>
           </b-row>
         </b-card-text>
@@ -104,7 +113,9 @@ export default {
           "The Vendor shall have access to the Event location beginning at [Start time] on [Date] in order to set up the appropriate stations, goods, or other items necessary in order to complete the services described. \nItems that require physical display space must be no larger than [Dimensions] and shall be displayed in a clean and orderly fashion throughout the course of the Event. No goods or services not described above may be sold or distributed during this Event without the Client’s express written consent.\n Following the event, the Vendor will have until [End time] to break down all equipment and clear the area of all goods. The Vendor is required to leave the area in a clean and serviceable manner.",
         appearance:
           "The Vendor will display an appearance and manner appropriate with the mood and theme of the Event being held. The vending station will not in any way interfere with the Event on hand, nor will vending staff leave the station unattended. Any special dress or appearance requirements outside of the accepted norm will be discussed in advance between the Client and the Vendor.\nBy signing below, both the Client and the Vendor indicate that they have read, understand, and agree to all terms and conditions outlined in this contract.",
-        comments: "We should rethink the compensation fees."
+        comments: "We should rethink the compensation fees.",
+        comment_response: "The proposed compensation fee is adequate for this client.",
+        new_comment: "Okey! I'll update the numbers then.",
       }
     };
   }

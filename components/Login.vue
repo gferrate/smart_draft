@@ -30,7 +30,7 @@
         </b-form-group>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Login</b-button>
+      <b-button type="submit" variant="primary" class="w-100">Login</b-button>
     </b-form>
   </div>
 </template>
@@ -51,6 +51,8 @@ export default {
       evt.preventDefault();
       if (this.form.selected == "junior") {
         this.$router.push("/junior_open_case_files");
+      } else if (this.form.selected == "senior") {
+        this.$router.push("/senior_lawyer_case_files");
       }
       //this.$router.push("/?"+JSON.stringify(this.form));
     }

@@ -13,7 +13,7 @@
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                In progress
+                  To review
                 <b-badge>{{ in_progress_length }}</b-badge>
               </template>
               <b-card-text>
@@ -24,25 +24,25 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="/fill_template">Open</b-button>
+                    <b-button size="xs" pill variant="outline-secondary" to="/fill_template_senior">Open</b-button>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
             </b-tab>
             <b-tab>
               <template v-slot:title>
-                Waiting to be approved
-                <b-badge>{{ length }}</b-badge>
+                  Waiting oposing party to sign
+                <b-badge>{{ in_progress_length }}</b-badge>
               </template>
               <b-card-text>
                 <b-list-group>
                   <b-list-group-item
-                    v-for="(case_name, index) in cases"
+                    v-for="(case_name, index) in oposing_party"
                     :key="`case-${index}`"
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="send_for_review">Open</b-button>
+                    <b-button size="xs" pill variant="outline-secondary" to="/finalized_contract_oposing_party">Open</b-button>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -85,6 +85,7 @@ export default {
     return {
       in_progress: ["Work contract", "Contract of Service", "Supply"],
       cases: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
+      oposing_party: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
       finished_cases: ["Case 1", "Case 2", "Case 3", "Case 4"]
     };
   },

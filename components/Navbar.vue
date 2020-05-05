@@ -1,5 +1,5 @@
 <template>
-  <b-navbar variant="light" type="light" class="bg rounded-bottom shadow-sm mb-4">
+  <b-navbar variant="light" type="light" class="bg rounded-bottom shadow-sm mb-4" sticky>
     <b-container>
     <b-navbar-brand to="/">
       <img
