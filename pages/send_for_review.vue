@@ -36,10 +36,10 @@
               ></b-form-textarea>
               <h4 class="mt-4">Signatures</h4>
               <b-form-group id="input-group-1" label="Client:" label-for="input-1">
-                <b-form-input id="input-1" type="text"></b-form-input>
+                <b-form-input id="input-1" type="text" disabled></b-form-input>
               </b-form-group>
               <b-form-group id="input-group-1" label="Vendor:" label-for="input-1">
-                <b-form-input id="input-1" type="text"></b-form-input>
+                <b-form-input id="input-1" type="text" disabled></b-form-input>
               </b-form-group>
             </b-col>
             <b-col class="border-left">
