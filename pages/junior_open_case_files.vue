@@ -2,11 +2,22 @@
   <div>
     <navbar />
     <b-container>
+      <b-modal id="calendar">
+        <div class="text-center">
+          <p>Select date to be reminded</p>
+          <b-calendar locale="en-US"></b-calendar>
+        </div>
+      </b-modal>
       <div class="d-flex align-items-center justify-content-between mb-2">
         <h2 class="mb-0">Case files</h2>
-        <b-button size="sm" class="shadow-sm" to="/new_case_file">
-          <b-icon-file-plus class="mr-2" />Create new case file
-        </b-button>
+        <div>
+          <!--<b-button size="sm" class="shadow-sm" to="/contract_repository">
+            <b-icon-archive class="mr-2" />Contract repository
+          </b-button>-->
+          <b-button size="sm" class="shadow-sm" to="/new_case_file">
+            <b-icon-file-plus class="mr-2" />Create new case file
+          </b-button>
+        </div>
       </div>
       <div>
         <b-card no-body class="shadow-sm">
@@ -24,7 +35,25 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="/fill_template">Open</b-button>
+                    <div>
+                      <b-button
+                        v-b-modal.calendar
+                        variant="outline-primary"
+                        sixe="xs"
+                        pill
+                        class="shadow-sm ml-2 mr-2"
+                      >
+                        <b-icon-calendar class="mr-2" />Reminder
+                      </b-button>
+                      <b-button
+                        size="xs"
+                        pill
+                        variant="outline-secondary shadow-sm"
+                        to="/fill_template"
+                      >
+                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                      </b-button>
+                    </div>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -42,7 +71,25 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="send_for_review">Open</b-button>
+                    <div>
+                      <b-button
+                        v-b-modal.calendar
+                        variant="outline-primary"
+                        sixe="xs"
+                        pill
+                        class="shadow-sm ml-2 mr-2"
+                      >
+                        <b-icon-calendar class="mr-2" />Reminder
+                      </b-button>
+                      <b-button
+                        size="xs"
+                        pill
+                        variant="outline-secondary shadow-sm"
+                        to="send_for_review"
+                      >
+                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                      </b-button>
+                    </div>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -60,7 +107,16 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="/finalized_contract_signed">Open</b-button>
+                    <div>
+                      <b-button
+                        size="xs"
+                        pill
+                        variant="outline-secondary shadow-sm"
+                        to="/finalized_contract_signed"
+                      >
+                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                      </b-button>
+                    </div>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -74,15 +130,24 @@
 
 <script>
 import Navbar from "~/components/Navbar.vue";
-import { BIconFilePlus } from "bootstrap-vue";
+import {
+  BIconFilePlus,
+  BIconArchive,
+  BIconCalendar,
+  BIconBoxArrowInUpRight
+} from "bootstrap-vue";
 
 export default {
   components: {
     Navbar,
-    BIconFilePlus
+    BIconFilePlus,
+    BIconArchive,
+    BIconCalendar,
+    BIconBoxArrowInUpRight
   },
   data() {
     return {
+      cal: "",
       in_progress: ["Work contract", "Contract of Service", "Supply"],
       cases: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
       finished_cases: ["Case 1", "Case 2", "Case 3", "Case 4"]

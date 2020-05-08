@@ -9,6 +9,12 @@
         </b-button>
       </div>
       <div>
+      <b-modal id="calendar">
+        <div class="text-center">
+          <p>Select date to be reminded</p>
+          <b-calendar locale="en-US"></b-calendar>
+        </div>
+      </b-modal>
         <b-card no-body class="shadow-sm">
           <b-tabs card>
             <b-tab active>
@@ -24,7 +30,25 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="/fill_template_senior">Open</b-button>
+                    <div>
+                      <b-button
+                        v-b-modal.calendar
+                        variant="outline-primary"
+                        sixe="xs"
+                        pill
+                        class="shadow-sm ml-2 mr-2"
+                      >
+                        <b-icon-calendar class="mr-2" />Reminder
+                      </b-button>
+                      <b-button
+                        size="xs"
+                        pill
+                        variant="outline-secondary shadow-sm"
+                        to="fill_template_senior"
+                      >
+                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                      </b-button>
+                    </div>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -42,7 +66,25 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="/finalized_contract_oposing_party">Open</b-button>
+                    <div>
+                      <b-button
+                        v-b-modal.calendar
+                        variant="outline-primary"
+                        sixe="xs"
+                        pill
+                        class="shadow-sm ml-2 mr-2"
+                      >
+                        <b-icon-calendar class="mr-2" />Reminder
+                      </b-button>
+                      <b-button
+                        size="xs"
+                        pill
+                        variant="outline-secondary shadow-sm"
+                        to="finalized_contract_oposing_party"
+                      >
+                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                      </b-button>
+                    </div>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -74,12 +116,20 @@
 
 <script>
 import Navbar from "~/components/Navbar.vue";
-import { BIconFilePlus } from "bootstrap-vue";
+import {
+  BIconFilePlus,
+  BIconArchive,
+  BIconCalendar,
+  BIconBoxArrowInUpRight
+} from "bootstrap-vue";
 
 export default {
   components: {
     Navbar,
-    BIconFilePlus
+    BIconFilePlus,
+    BIconArchive,
+    BIconCalendar,
+    BIconBoxArrowInUpRight
   },
   data() {
     return {
