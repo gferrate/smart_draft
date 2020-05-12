@@ -2,6 +2,15 @@
   <div>
     <navbar />
     <b-container>
+      <div class="d-flex align-items-center justify-content-between mb-5">
+        <response-time-chart :data="chart_3_data" :title="chart_3_title" :labels="chart_3_labels" />
+        <contract-status-chart
+          :data="chart_1_data"
+          :title="chart_1_title"
+          :labels="chart_1_labels"
+        />
+        <response-time-chart :data="chart_2_data" :title="chart_2_title" :labels="chart_2_labels" />
+      </div>
       <b-modal id="calendar">
         <div class="text-center">
           <p>Select date to be reminded</p>
@@ -51,7 +60,7 @@
                         variant="outline-secondary shadow-sm"
                         to="/fill_template"
                       >
-                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                        <b-icon-box-arrow-in-up-right class="mr-2" />Open
                       </b-button>
                     </div>
                   </b-list-group-item>
@@ -87,7 +96,7 @@
                         variant="outline-secondary shadow-sm"
                         to="send_for_review"
                       >
-                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                        <b-icon-box-arrow-in-up-right class="mr-2" />Open
                       </b-button>
                     </div>
                   </b-list-group-item>
@@ -114,7 +123,7 @@
                         variant="outline-secondary shadow-sm"
                         to="/finalized_contract_signed"
                       >
-                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                        <b-icon-box-arrow-in-up-right class="mr-2" />Open
                       </b-button>
                     </div>
                   </b-list-group-item>
@@ -136,6 +145,9 @@ import {
   BIconCalendar,
   BIconBoxArrowInUpRight
 } from "bootstrap-vue";
+import PieChart from "~/components/PieChart";
+import ContractStatusChart from "~/components/charts/ContractStatusChart";
+import ResponseTimeChart from "~/components/charts/ResponseTimeChart";
 
 export default {
   components: {
@@ -143,10 +155,22 @@ export default {
     BIconFilePlus,
     BIconArchive,
     BIconCalendar,
-    BIconBoxArrowInUpRight
+    BIconBoxArrowInUpRight,
+    ContractStatusChart,
+    ResponseTimeChart,
+    PieChart
   },
   data() {
     return {
+      chart_1_data: [3, 4, 5],
+      chart_1_labels: ["On Progress", "Waiting to be approved", "Finished"],
+      chart_1_title: "Case file statuses",
+      chart_2_data: [4, 5, 3],
+      chart_2_labels: ["Two weeks ago", "Last week", "This week"],
+      chart_2_title: "Response times",
+      chart_3_data: [3, 3, 4],
+      chart_3_labels: ["Two weeks ago", "Last week", "This week"],
+      chart_3_title: "Number of revisions per case",
       cal: "",
       in_progress: ["Work contract", "Contract of Service", "Supply"],
       cases: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
@@ -168,24 +192,7 @@ export default {
 </script>
 
 <style>
-/*.style {
-    background-color: #cbcbcc;
-    padding-bottom: 10vw;
-    height: 80vh;
+.charts {
+  height: 280px;
 }
-.angle-bottom-left {
-    -webkit-clip-path: polygon(0 0,100% 0vw,100% 100%,0 calc(100% - 15vw));
-    clip-path: polygon(0 0,100% 0,100% 100%,0 calc(100% - 15vw));
-    padding-bottom: 12vh;
-}
-.angled {
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    left: 0;
-    position: relative;
-    max-width: 100vw;
-    padding-bottom: 3.5rem;
-    padding-top: 3rem;
-}*/
 </style>

@@ -2,6 +2,15 @@
   <div>
     <navbar />
     <b-container>
+      <div class="d-flex align-items-center justify-content-between mb-5">
+        <response-time-chart :data="chart_3_data" :title="chart_3_title" :labels="chart_3_labels" />
+        <contract-status-chart
+          :data="chart_1_data"
+          :title="chart_1_title"
+          :labels="chart_1_labels"
+        />
+        <response-time-chart :data="chart_2_data" :title="chart_2_title" :labels="chart_2_labels" />
+      </div>
       <div class="d-flex align-items-center justify-content-between mb-2">
         <h2 class="mb-0">Case files</h2>
         <b-button size="sm" class="shadow-sm" to="/new_case_file_senior">
@@ -9,17 +18,17 @@
         </b-button>
       </div>
       <div>
-      <b-modal id="calendar">
-        <div class="text-center">
-          <p>Select date to be reminded</p>
-          <b-calendar locale="en-US"></b-calendar>
-        </div>
-      </b-modal>
+        <b-modal id="calendar">
+          <div class="text-center">
+            <p>Select date to be reminded</p>
+            <b-calendar locale="en-US"></b-calendar>
+          </div>
+        </b-modal>
         <b-card no-body class="shadow-sm">
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                  To review
+                To review
                 <b-badge>{{ in_progress_length }}</b-badge>
               </template>
               <b-card-text>
@@ -46,7 +55,7 @@
                         variant="outline-secondary shadow-sm"
                         to="fill_template_senior"
                       >
-                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                        <b-icon-box-arrow-in-up-right class="mr-2" />Open
                       </b-button>
                     </div>
                   </b-list-group-item>
@@ -55,7 +64,7 @@
             </b-tab>
             <b-tab>
               <template v-slot:title>
-                  Waiting oposing party to sign
+                Waiting oposing party to sign
                 <b-badge>{{ in_progress_length }}</b-badge>
               </template>
               <b-card-text>
@@ -82,7 +91,7 @@
                         variant="outline-secondary shadow-sm"
                         to="finalized_contract_oposing_party"
                       >
-                        <b-icon-box-arrow-in-up-right class="mr-2"/>Open
+                        <b-icon-box-arrow-in-up-right class="mr-2" />Open
                       </b-button>
                     </div>
                   </b-list-group-item>
@@ -102,7 +111,12 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button size="xs" pill variant="outline-secondary" to="/finalized_contract_signed">Open</b-button>
+                    <b-button
+                      size="xs"
+                      pill
+                      variant="outline-secondary"
+                      to="/finalized_contract_signed"
+                    >Open</b-button>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
@@ -122,6 +136,9 @@ import {
   BIconCalendar,
   BIconBoxArrowInUpRight
 } from "bootstrap-vue";
+import PieChart from "~/components/PieChart";
+import ContractStatusChart from "~/components/charts/ContractStatusChart";
+import ResponseTimeChart from "~/components/charts/ResponseTimeChart";
 
 export default {
   components: {
@@ -129,13 +146,28 @@ export default {
     BIconFilePlus,
     BIconArchive,
     BIconCalendar,
-    BIconBoxArrowInUpRight
+    BIconBoxArrowInUpRight,
+    ContractStatusChart,
+    ResponseTimeChart,
+    PieChart
   },
   data() {
     return {
+      chart_1_data: [3, 3, 4],
+      chart_1_labels: ["To review", "Waiting oposing party", "Finished"],
+      chart_1_title: "Case file statuses",
+      chart_2_data: [4, 5, 3],
+      chart_2_labels: ["Two weeks ago", "Last week", "This week"],
+      chart_2_title: "Response times",
+      chart_3_data: [3, 3, 4],
+      chart_3_labels: ["Two weeks ago", "Last week", "This week"],
+      chart_3_title: "Number of revisions per case",
       in_progress: ["Work contract", "Contract of Service", "Supply"],
       cases: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
-      oposing_party: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
+      oposing_party: [
+        "Case 1: NDA for Intern",
+        "Case 2: Contract of employment"
+      ],
       finished_cases: ["Case 1", "Case 2", "Case 3", "Case 4"]
     };
   },
