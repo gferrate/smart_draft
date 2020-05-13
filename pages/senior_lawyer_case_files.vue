@@ -159,14 +159,14 @@ export default {
   data() {
     return {
       chart_1_data: [3, 3, 4],
-      chart_1_labels: ["To review", "Waiting oposing party", "Finished"],
-      chart_1_title: "Case file statuses",
+      chart_1_labels: ["NDA", "Contract of service", "Contract of work"],
+      chart_1_title: "Number of clients",
       chart_2_data: [4, 5, 3],
       chart_2_labels: ["Two weeks ago", "Last week", "This week"],
-      chart_2_title: "Response times",
+      chart_2_title: "Completed cases",
       chart_3_data: [3, 3, 4],
       chart_3_labels: ["Two weeks ago", "Last week", "This week"],
-      chart_3_title: "Number of revisions per case",
+      chart_3_title: "Client retention",
       in_progress: ["Work contract", "Contract of Service", "Supply"],
       cases: ["Case 1: NDA for Intern", "Case 2: Contract of employment"],
       oposing_party: [
