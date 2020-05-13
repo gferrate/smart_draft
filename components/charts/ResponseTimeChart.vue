@@ -25,9 +25,9 @@ export default {
           {
             label: "Income",
             backgroundColor: [
-              chartColors.red,
-              chartColors.orange,
-              chartColors.yellow
+              chartColors.blue,
+              chartColors.purple,
+              chartColors.gray
             ],
             data: this.data
           }

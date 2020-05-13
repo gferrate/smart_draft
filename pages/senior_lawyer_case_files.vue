@@ -13,9 +13,14 @@
       </div>
       <div class="d-flex align-items-center justify-content-between mb-2">
         <h2 class="mb-0">Case files</h2>
-        <b-button size="sm" class="shadow-sm" to="/new_case_file_senior">
-          <b-icon-file-plus class="mr-2" />Create new case file
-        </b-button>
+        <div>
+          <b-button size="sm" class="shadow-sm" variant="primary" to="/contract_repository">
+            <b-icon-archive class="mr-2" />Contract repository
+          </b-button>
+          <b-button size="sm" class="shadow-sm" to="/new_case_file_senior">
+            <b-icon-file-plus class="mr-2" />Create new case file
+          </b-button>
+        </div>
       </div>
       <div>
         <b-modal id="calendar">
@@ -43,14 +48,14 @@
                       <b-button
                         v-b-modal.calendar
                         variant="outline-primary"
-                        sixe="xs"
+                        size="sm"
                         pill
                         class="shadow-sm ml-2 mr-2"
                       >
                         <b-icon-calendar class="mr-2" />Reminder
                       </b-button>
                       <b-button
-                        size="xs"
+                        size="sm"
                         pill
                         variant="outline-secondary shadow-sm"
                         to="fill_template_senior"
@@ -79,14 +84,14 @@
                       <b-button
                         v-b-modal.calendar
                         variant="outline-primary"
-                        sixe="xs"
+                        size="sm"
                         pill
                         class="shadow-sm ml-2 mr-2"
                       >
                         <b-icon-calendar class="mr-2" />Reminder
                       </b-button>
                       <b-button
-                        size="xs"
+                        size="sm"
                         pill
                         variant="outline-secondary shadow-sm"
                         to="finalized_contract_oposing_party"
@@ -112,7 +117,7 @@
                   >
                     {{case_name}}
                     <b-button
-                      size="xs"
+                      size="sm"
                       pill
                       variant="outline-secondary"
                       to="/finalized_contract_signed"

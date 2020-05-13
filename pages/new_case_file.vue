@@ -22,7 +22,7 @@
                       class="d-flex align-items-center justify-content-between"
                     >
                       {{case_name}}
-                      <b-button size="xs" pill variant="outline-secondary">Select</b-button>
+                      <b-button size="sm" pill variant="outline-secondary">Select</b-button>
                     </b-list-group-item>
                 </b-list-group>
               </b-card-text>

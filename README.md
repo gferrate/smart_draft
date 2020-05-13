@@ -1,6 +1,10 @@
-# smart_draft
+# Smart Draft
 
-> My outstanding Nuxt.js project
+> This project is part of the Internship Innovation Project done @ [ESADE Business School](https://www.esade.edu/) with the colaboration of [LEACARE](http://www.lecare.com/es/especialista-archivos-legales-electronicos/)
+
+## Live demo
+[here](https://smartdraft.netlify.app/)
+
 
 ## Build Setup
 
