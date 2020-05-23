@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <navbar />
+  <div class="pb-5">
+    <navbar url="/junior_open_case_files" />
     <b-container>
       <div class="d-flex align-items-center justify-content-between mb-5">
         <response-time-chart :data="chart_3_data" :title="chart_3_title" :labels="chart_3_labels" />
@@ -45,6 +45,10 @@
                   >
                     {{case_name}}
                     <div>
+                      <div class="d-inline">
+                        <label for="rating-inline">Priority:</label>
+                        <b-form-rating size="sm" id="rating-inline" stars="3" inline value="2"></b-form-rating>
+                      </div>
                       <b-button
                         v-b-modal.calendar
                         variant="outline-primary"
@@ -81,6 +85,10 @@
                   >
                     {{case_name}}
                     <div>
+                      <div class="d-inline">
+                        <label for="rating-inline">Priority:</label>
+                        <b-form-rating size="sm" id="rating-inline" stars="3" inline value="2"></b-form-rating>
+                      </div>
                       <b-button
                         v-b-modal.calendar
                         variant="outline-primary"
@@ -117,6 +125,10 @@
                   >
                     {{case_name}}
                     <div>
+                      <div class="d-inline">
+                        <label for="rating-inline">Priority:</label>
+                        <b-form-rating id="rating-inline" size="sm" stars="3" inline value="2"></b-form-rating>
+                      </div>
                       <b-button
                         size="sm"
                         pill
@@ -132,6 +144,11 @@
             </b-tab>
           </b-tabs>
         </b-card>
+      </div>
+      <div>
+        <h2 class="mt-4 mb-2">Upcoming reminders</h2>
+        <!--<b-card class="shadow-sm text-center"> </b-card>-->
+        <b-calendar :date-info-fn="dateClass" locale="en"></b-calendar>
       </div>
     </b-container>
   </div>
@@ -167,7 +184,7 @@ export default {
       chart_1_title: "Case file statuses",
       chart_2_data: [4, 5, 3],
       chart_2_labels: ["Two weeks ago", "Last week", "This week"],
-      chart_2_title: "Response times",
+      chart_2_title: "Hours per case",
       chart_3_data: [3, 3, 4],
       chart_3_labels: ["Two weeks ago", "Last week", "This week"],
       chart_3_title: "Number of revisions per case",
@@ -186,6 +203,14 @@ export default {
     },
     in_progress_length() {
       return this.in_progress.length;
+    }
+  },
+  methods: {
+    dateClass(ymd, date) {
+      const day = date.getDate();
+      return day == 10 || day == 20 || day == 15 || day == 1
+        ? "table-info"
+        : "";
     }
   }
 };

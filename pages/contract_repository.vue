@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar />
+    <navbar url="/"/>
     <b-container class="pb-5">
       <b-card class="text-left shadow-sm">
         <template v-slot:header>Contract repository: Historical cases</template>

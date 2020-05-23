@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar />
-    <b-container>
+    <b-container class="pb-5">
       <div class="d-flex align-items-center justify-content-between mb-5">
         <response-time-chart :data="chart_3_data" :title="chart_3_title" :labels="chart_3_labels" />
         <contract-status-chart
@@ -45,6 +45,10 @@
                   >
                     {{case_name}}
                     <div>
+                      <div class="d-inline">
+                        <label for="rating-inline">Priority:</label>
+                        <b-form-rating size="sm" id="rating-inline" stars="3" inline value="2"></b-form-rating>
+                      </div>
                       <b-button
                         v-b-modal.calendar
                         variant="outline-primary"
@@ -81,6 +85,10 @@
                   >
                     {{case_name}}
                     <div>
+                      <div class="d-inline">
+                        <label for="rating-inline">Priority:</label>
+                        <b-form-rating size="sm" id="rating-inline" stars="3" inline value="2"></b-form-rating>
+                      </div>
                       <b-button
                         v-b-modal.calendar
                         variant="outline-primary"
@@ -116,18 +124,31 @@
                     class="d-flex align-items-center justify-content-between"
                   >
                     {{case_name}}
-                    <b-button
-                      size="sm"
-                      pill
-                      variant="outline-secondary"
-                      to="/finalized_contract_signed"
-                    >Open</b-button>
+                    <div>
+                      <div class="d-inline mr-2">
+                        <label for="rating-inline">Priority:</label>
+                        <b-form-rating size="sm" id="rating-inline" stars="3" inline value="2"></b-form-rating>
+                      </div>
+                      <b-button
+                        size="sm"
+                        pill
+                        variant="outline-secondary"
+                        to="/finalized_contract_signed"
+                      >
+                        <b-icon-box-arrow-in-up-right class="mr-2" />Open
+                      </b-button>
+                    </div>
                   </b-list-group-item>
                 </b-list-group>
               </b-card-text>
             </b-tab>
           </b-tabs>
         </b-card>
+      </div>
+      <div>
+        <h2 class="mt-4 mb-2">Upcoming reminders</h2>
+        <!--<b-card class="shadow-sm text-center"> </b-card>-->
+        <b-calendar :date-info-fn="dateClass" locale="en"></b-calendar>
       </div>
     </b-container>
   </div>
@@ -155,6 +176,14 @@ export default {
     ContractStatusChart,
     ResponseTimeChart,
     PieChart
+  },
+  methods: {
+    dateClass(ymd, date) {
+      const day = date.getDate();
+      return day == 10 || day == 20 || day == 15 || day == 1
+        ? "table-info"
+        : "";
+    }
   },
   data() {
     return {

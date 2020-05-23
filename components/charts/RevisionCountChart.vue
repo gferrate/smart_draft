@@ -36,7 +36,7 @@ export default {
       barChartOptions: {
         responsive: true,
         legend: {
-          display: false
+          display: true
         },
         title: {
           display: true,

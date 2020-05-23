@@ -1,5 +1,5 @@
 <template>
-  <bar-chart :data="barChartData" :options="barChartOptions" :height="150" :width="280"/>
+  <bar-chart :data="barChartData" :options="barChartOptions" :height="250" :width="280"/>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
         labels: this.labels,
         datasets: [
           {
-            label: "Income",
+            label: "Amount",
             backgroundColor: [
               chartColors.blue,
               chartColors.purple,
@@ -36,7 +36,7 @@ export default {
       barChartOptions: {
         responsive: false,
         legend: {
-          display: false
+          display: true
         },
         title: {
           display: true,

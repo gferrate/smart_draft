@@ -1,7 +1,7 @@
 <template>
   <b-navbar variant="light" type="light" class="bg rounded-bottom shadow-sm mb-4" sticky>
     <b-container>
-      <b-navbar-brand to="/">
+      <b-navbar-brand :to="url">
         <img
           id="logo"
           src="~/assets/smart_draft_logo_2.png"
@@ -20,6 +20,7 @@
         >
           <template v-slot:button-content>
             <b-icon-bell size="lg" />
+            <b-badge>3</b-badge>
             <span class="sr-only">Notifications</span>
           </template>
           <b-dropdown-item href="#">
@@ -45,6 +46,12 @@ import {
   BIconCheckAll
 } from "bootstrap-vue";
 export default {
+  props: {
+    url: {
+      default: "/",
+      type: String
+    }
+  },
   components: {
     BIconBell,
     BIconExclamationTriangle,
@@ -55,8 +62,5 @@ export default {
 <style>
 #logo {
   width: 200px;
-}
-.bg {
-  /*background-color: #f3f2e2 !important;*/
 }
 </style>

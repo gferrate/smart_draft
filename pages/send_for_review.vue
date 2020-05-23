@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar />
+    <navbar url="/junior_open_case_files" />
     <b-container class="pb-5">
       <b-card class="text-left shadow-sm">
         <template v-slot:header>Contract being reviewed by Sr Lawyer</template>
@@ -79,7 +79,7 @@
                 v-b-modal.modal-1
                 variant="outline-primary"
                 class="shadow-sm ml-2"
-              >Download as xlsx</b-button>
+              >Download as word</b-button>
               <b-modal id="modal-1" hide-footer>
                 <p>Simulation of Word document downloading</p>
               </b-modal>

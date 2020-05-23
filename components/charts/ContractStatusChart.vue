@@ -1,5 +1,5 @@
 <template>
-  <pie-chart :data="barChartData" :options="barChartOptions" :height="140" :width="220"/>
+  <pie-chart :data="barChartData" :options="barChartOptions" :height="240" :width="220"/>
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
       barChartOptions: {
         responsive: false,
         legend: {
-          display: false
+          display: true
         },
         title: {
           display: true,

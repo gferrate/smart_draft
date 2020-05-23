@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar />
+    <navbar url="/senior_lawyer_case_files" />
     <b-container class="pb-5">
       <b-card class="text-left shadow-sm">
         <template v-slot:header>Fill the contract</template>
@@ -73,11 +73,11 @@
                 v-b-modal.modal-1
                 variant="outline-primary"
                 class="shadow-sm ml-2"
-              >Download as xlsx</b-button>
+              >Download as word</b-button>
               <b-modal id="modal-1" hide-footer>
                 <p>Simulation of Word document downloading</p>
               </b-modal>
-              <b-button class="shadow-sm ml-2" to="/senior_lawyer_case_files">Send comments to Jr Lawyer</b-button>
+              <b-button class="shadow-sm ml-2" to="/senior_lawyer_case_files">Send draft to Jr Lawyer</b-button>
               <b-button variant="success" class="shadow-sm ml-2" to="/finalized_contract">Finalize contract</b-button>
             </b-col>
           </b-row>
