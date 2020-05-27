@@ -32,6 +32,11 @@
               </b-card-text>
             </b-card>
           </div>
+          <b-button
+            variant="outline-primary"
+            to="/junior_open_case_files"
+            class="mt-2"
+          >Go back to case files</b-button>
         </b-col>
         <b-col>
           <b-card class="text-left shadow-sm">

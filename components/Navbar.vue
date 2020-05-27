@@ -20,7 +20,8 @@
         >
           <template v-slot:button-content>
             <b-icon-bell size="lg" />
-            <b-badge>3</b-badge>
+            <b-badge v-if="url=='/junior_open_case_files'">2</b-badge>
+            <b-badge v-else>3</b-badge>
             <span class="sr-only">Notifications</span>
           </template>
           <b-dropdown-item href="#">
@@ -29,7 +30,8 @@
           <b-dropdown-item href="#">
             <b-icon-bell class="mr-2" />Reminder for NDA
           </b-dropdown-item>
-          <b-dropdown-item href="#">
+
+          <b-dropdown-item v-if="url!='/junior_open_case_files'" href="#">
             <b-icon-check-all class="mr-2" />Contract signed by oposing party
           </b-dropdown-item>
         </b-dropdown>

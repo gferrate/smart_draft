@@ -14,11 +14,14 @@
       <div class="d-flex align-items-center justify-content-between mb-2">
         <h2 class="mb-0">Case files</h2>
         <div>
-          <b-button size="sm" class="shadow-sm" variant="primary" to="/contract_repository">
+          <b-button size="sm" class="shadow-sm" variant="primary" to="/contract_repository_senior">
             <b-icon-archive class="mr-2" />Contract repository
           </b-button>
           <b-button size="sm" class="shadow-sm" to="/new_case_file_senior">
             <b-icon-file-plus class="mr-2" />Create new case file
+          </b-button>
+          <b-button size="sm" class="shadow-sm" variant="" to="/potential_partners">
+            <b-icon-people class="mr-2" />Potential partners
           </b-button>
         </div>
       </div>
@@ -160,7 +163,8 @@ import {
   BIconFilePlus,
   BIconArchive,
   BIconCalendar,
-  BIconBoxArrowInUpRight
+  BIconBoxArrowInUpRight,
+  BIconPeople
 } from "bootstrap-vue";
 import PieChart from "~/components/PieChart";
 import ContractStatusChart from "~/components/charts/ContractStatusChart";
@@ -175,6 +179,7 @@ export default {
     BIconBoxArrowInUpRight,
     ContractStatusChart,
     ResponseTimeChart,
+    BIconPeople,
     PieChart
   },
   methods: {

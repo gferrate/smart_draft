@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar url="/" />
+    <navbar url="/"/>
     <b-container class="pb-5">
       <b-card class="text-left shadow-sm">
         <template v-slot:header>Contract repository: Historical cases</template>
@@ -22,7 +22,7 @@
       </b-card>
       <b-button
         variant="outline-primary"
-        to="/junior_open_case_files"
+        to="/senior_lawyer_case_files"
         class="mt-2"
       >Go back to case files</b-button>
     </b-container>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+
 import Navbar from "~/components/Navbar.vue";
 
 export default {
@@ -38,13 +39,7 @@ export default {
   },
   data() {
     return {
-      fields: [
-        "contract_name",
-        "lawyer_in_charge",
-        "oposing_party",
-        "completion_date",
-        "link"
-      ],
+      fields: ["contract_name", "lawyer_in_charge", "oposing_party", "completion_date", "link"],
       items: [
         {
           contract_name: "LECARE acquisition",
